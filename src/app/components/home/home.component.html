@@ -1,43 +1,54 @@
 <div class="main-loader" *ngIf="mainLoaderIs">
-    <img src="./assets/img/loader.gif" alt="Loading..." />
+  <img src="./assets/img/loader.gif" alt="Loading..." />
 </div>
 <div class="homeContainer">
-    <div class="lastUpdatedAt" *ngIf="topHeadLinesList">
-Last updated at <span [innerHTML]="articles[0].publishedAt | date:'medium'"></span>
+  <div class="newsContainer" *ngIf="topHeadLinesList && !isServerResponse">
+    <div class="lastUpdatedAt">
+      Last updated at
+      <span [innerHTML]="articles[0].publishedAt | date: 'medium'"></span>
     </div>
     <div class="searchBar">
-        <div class="row no-gutters filterArea">
-            <div class="col-6">
-              <div class="form-group">
-                <label>Search news </label>
-                <!-- <input name="clientid" [typeahead]="app.clientList" [typeaheadMinLength]="0"
-                  [typeaheadOptionsLimit]="app.clientList.length" [(ngModel)]="filter.clientid"
-                  placeholder="Search Client Id" class="form-control" typeaheadOptionField="name"
-                  [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10" autocomplete="off"
-                  (typeaheadOnSelect)="searchData()"> -->
-
-                <!-- <button type="button" class="btn inputClear" *ngIf="filter.clientid"
-                  (click)="filter.clientid = ''; searchData()" style="right:0px; top: 18px;">
-                  <i class="fas fa-times"></i>
-                </button> -->
-              </div>
+      <div class="row no-gutters filterArea">
+        <div class="col-6">
+          <div class="form-group">
+            <label>Search news </label>
+            <input
+              name="search"
+              type="text"
+              [(ngModel)]="search"
+              placeholder="Search"
+              class="form-control"
+              (keyup.enter)="showSearchResult()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="topHeadline" *ngIf="totalCount > 0">
+      <div class="row no-gutters mx-0">
+        <div class="col-md-6 col-lg-4 col-12 pb-4" *ngFor="let topHeadLine of articles">
+          <div class="topNewsImage" style="background-image: url({{topHeadLine.urlToImage}});">
+            <div class="visibleLayer">
+              <p class="mb-0" [innerHTML]="topHeadLine.title"></p>
+              <p
+                class="mb-0"
+                [innerHTML]="topHeadLine.publishedAt | date: 'medium'"></p>
             </div>
           </div>
-    </div>
-    <div class="topHeadline">
-        <div class="row no-gutters mx-0">
-            <div class="col-md-6 col-lg-4 col-12 pb-4" *ngFor="let topHeadLine of articles">
-                <div class="topNewsImage" style="background-image: url({{topHeadLine.urlToImage}});
-                ">
-                <div class="visibleLayer">
-                    <p class="mb-0" [innerHTML]="topHeadLine.title"></p>
-                    <p class="mb-0" [innerHTML]="topHeadLine.publishedAt | date:'medium'"></p>
-                </div>
-                <!-- <img *ngIf="topHeadLine.urlToImage != null" [src]="topHeadLine.urlToImage" alt=""> -->
-                <!-- <img *ngIf="topHeadLine.urlToImage == null" src="../../../assets/img/default.png" alt=""> -->
-            </div>
-            </div>
-            
         </div>
+      </div>
     </div>
+    <div class="noDataFound" *ngIf="totalCount == 0">
+      <div class="errorInfo">
+        <img src="./assets/img/noDataFound.jpg" alt="pageNotFound">
+        <p>Page Not Found!</p>
+    </div>
+  </div>
+  <div class="serverError" *ngIf="isServerResponse">
+<h6 [innerHTML]="errorStatus"></h6>
+<h3 [innerHTML]="errorMessage"></h3>
+  </div>
+ 
+  </div>
+  
 </div>

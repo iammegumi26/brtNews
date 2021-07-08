@@ -52,3 +52,15 @@ app-root {
   max-width: 300px;
   max-height: 300px;
 }
+.errorInfo{
+  img{
+      max-width: 576px;
+      width: 100%;
+      margin-top: 40px;
+  }
+  p{
+      text-align: center;
+font-size: 2rem;
+color: #ea543c;
+  }
+}

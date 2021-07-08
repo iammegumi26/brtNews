@@ -7,12 +7,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { ToastrModule } from "ngx-toastr";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,8 @@ import { ToastrModule } from "ngx-toastr";
       closeButton: true,
       timeOut: 3000
     }),
+     FormsModule,
+     ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

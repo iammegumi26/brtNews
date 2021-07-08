@@ -13,4 +13,7 @@ apiKey = appConfig.apiKey;
   getTopHeadLine() {
     return this.http.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=" + this.apiKey);
   }
+  getSearchResult(search:any) {
+    return this.http.get("https://newsapi.org/v2/everything?q="+ search +"&apiKey=" + this.apiKey);
+  }
 }

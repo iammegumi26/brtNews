@@ -22,8 +22,10 @@
     height: 100%;
     background: rgb(0 0 0);
     background: linear-gradient(
-180deg
-, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 42%) 52%);
+      180deg,
+      rgb(0 0 0 / 0%) 35%,
+      rgb(0 0 0 / 42%) 52%
+    );
     color: #fff;
     padding: 15px;
     display: flex;
@@ -35,4 +37,8 @@
     cursor: pointer;
     background-size: auto 150%;
   }
+}
+.noDataFound {
+  display: flex;
+  justify-content: center;
 }
