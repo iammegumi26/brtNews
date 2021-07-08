@@ -45,8 +45,8 @@ export class HomeComponent implements OnInit {
       }
       if(response.status == "error"){
         this.isServerResponse = true;
-        this.errorStatus = response.status;
-          this.errorMessage = response.message;
+        this.errorStatus = "429";
+          this.errorMessage = "You have been rate limited. Back off for a while before trying the request again.";
           console.log(this.errorStatus,this.errorMessage)
       }
       this.app.mainLoaderIs = false;
@@ -54,9 +54,9 @@ export class HomeComponent implements OnInit {
       (error) => {
         this.isServerResponse = true;
         this.app.mainLoaderIs = false;
-        this.errorStatus = error.status;
-          this.errorMessage = error.message;
-        this.toastr.warning(error.message);
+        this.errorStatus = "426";
+          this.errorMessage = "Requests from the browser are not allowed on the Developer plan, except from localhost.";
+        this.toastr.warning("Requests from the browser are not allowed on the Developer plan, except from localhost.");
         console.log(error);
       });
   }
