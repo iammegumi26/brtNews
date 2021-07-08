@@ -1,0 +1,45 @@
+.headerMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 4px 5px 2px #0000001f;
+  position: relative;
+  z-index: 1;
+  padding: 10px 20px;
+  color: #ffffff;
+  background-color: #010101;
+  .newsTitle {
+    display: inline-block;
+    h3 {
+      font-weight: 600;
+      font-family: "Corben", cursive;
+      margin-bottom: 0px;
+    }
+    p {
+      font-size: 14px;
+      letter-spacing: 0.2rem;
+      color: #ea543c;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 0px;
+    }
+    .newsNavigation {
+      display: inline-block;
+    }
+  }
+}
+.home,
+.recommendation {
+  color: #fff;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    color: #ea543c;
+    font-weight: 600;
+  }
+}
+
+.homeActive, .recommendationActive {
+  color: #ea543c;
+  font-weight: 600;
+}

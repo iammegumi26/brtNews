@@ -1,0 +1,42 @@
+<div class="main-loader" *ngIf="mainLoaderIs">
+    <img src="../../../assets/img/loader.gif" alt="Loading..." />
+</div>
+<div class="homeContainer">
+    <div class="lastUpdatedAt" *ngIf="topHeadLinesList">
+Last updated at <span [innerHTML]="articles[0].publishedAt | date:'medium'"></span>
+    </div>
+    <div class="searchBar">
+        <div class="row no-gutters filterArea">
+            <div class="col-6">
+              <div class="form-group">
+                <label>Search news </label>
+                <!-- <input name="clientid" [typeahead]="app.clientList" [typeaheadMinLength]="0"
+                  [typeaheadOptionsLimit]="app.clientList.length" [(ngModel)]="filter.clientid"
+                  placeholder="Search Client Id" class="form-control" typeaheadOptionField="name"
+                  [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10" autocomplete="off"
+                  (typeaheadOnSelect)="searchData()"> -->
+
+                <!-- <button type="button" class="btn inputClear" *ngIf="filter.clientid"
+                  (click)="filter.clientid = ''; searchData()" style="right:0px; top: 18px;">
+                  <i class="fas fa-times"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="topHeadline">
+        <div class="form-row d-flex">
+            <div class="col-4" *ngFor="let topHeadLine of articles">
+                <div class="topNewsImage">
+                <div class="visibleLayer">
+                    <p [innerHTML]="topHeadLine.title"></p>
+                    <p [innerHTML]="topHeadLine.publishedAt | date:'medium'"></p>
+                </div>
+                <img *ngIf="topHeadLine.urlToImage != null" [src]="topHeadLine.urlToImage" alt="">
+                <img *ngIf="topHeadLine.urlToImage == null" src="../../../assets/img/default.png" alt="">
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

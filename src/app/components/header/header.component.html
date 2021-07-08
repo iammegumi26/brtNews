@@ -1,0 +1,12 @@
+<div class="headerMainContainer">
+    <div class="newsTitle">
+        <h3>BRT</h3>
+        <p>NEWS</p>
+    </div>
+    <div class="newsNavigation">
+        <div class="row no-gutters">
+            <div class="col-auto home" (click)="navigateHome()" [ngClass]="{'homeActive':isActive}">Home</div>
+            <div class="col-auto recommendation" (click)="naviagteRecommendation()" [ngClass]="{'recommendationActive':!isActive}">Recommendation</div>
+        </div>
+    </div>
+</div>

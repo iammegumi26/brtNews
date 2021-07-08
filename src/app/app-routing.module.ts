@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { HomeComponent } from './components/home/home.component';
+import { RecommendationComponent } from './components/recommendation/recommendation.component';
+const routes: Routes = [
+  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "home", component: HomeComponent },
+  { path: "recommendation", component: RecommendationComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
