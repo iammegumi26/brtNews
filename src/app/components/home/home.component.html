@@ -1,5 +1,5 @@
 <div class="main-loader" *ngIf="mainLoaderIs">
-    <img src="../../../assets/img/loader.gif" alt="Loading..." />
+    <img src="./assets/img/loader.gif" alt="Loading..." />
 </div>
 <div class="homeContainer">
     <div class="lastUpdatedAt" *ngIf="topHeadLinesList">
@@ -25,15 +25,16 @@ Last updated at <span [innerHTML]="articles[0].publishedAt | date:'medium'"></sp
           </div>
     </div>
     <div class="topHeadline">
-        <div class="form-row d-flex">
-            <div class="col-4" *ngFor="let topHeadLine of articles">
-                <div class="topNewsImage">
+        <div class="row no-gutters mx-0">
+            <div class="col-md-6 col-lg-4 col-12 pb-4" *ngFor="let topHeadLine of articles">
+                <div class="topNewsImage" style="background-image: url({{topHeadLine.urlToImage}});
+                ">
                 <div class="visibleLayer">
-                    <p [innerHTML]="topHeadLine.title"></p>
-                    <p [innerHTML]="topHeadLine.publishedAt | date:'medium'"></p>
+                    <p class="mb-0" [innerHTML]="topHeadLine.title"></p>
+                    <p class="mb-0" [innerHTML]="topHeadLine.publishedAt | date:'medium'"></p>
                 </div>
-                <img *ngIf="topHeadLine.urlToImage != null" [src]="topHeadLine.urlToImage" alt="">
-                <img *ngIf="topHeadLine.urlToImage == null" src="../../../assets/img/default.png" alt="">
+                <!-- <img *ngIf="topHeadLine.urlToImage != null" [src]="topHeadLine.urlToImage" alt=""> -->
+                <!-- <img *ngIf="topHeadLine.urlToImage == null" src="../../../assets/img/default.png" alt=""> -->
             </div>
             </div>
             

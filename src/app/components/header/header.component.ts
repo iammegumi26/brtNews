@@ -16,8 +16,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
   navigateHome() {
     this.isActive = true;
+    this.router.navigate(["home"]);
   }
   naviagteRecommendation() {
     this.isActive = false;
+    this.router.navigate(["recommendation"]);
   }
 }

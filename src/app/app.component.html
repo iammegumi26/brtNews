@@ -1,6 +1,4 @@
 <div class="componentContainer">
   <app-header></app-header>
-  <!-- <app-dashboard></app-dashboard> -->
-  <app-home *ngIf="this.header.isActive"></app-home>
-   <app-recommendation *ngIf="!this.header.isActive"></app-recommendation>
+  <router-outlet></router-outlet>
 </div>

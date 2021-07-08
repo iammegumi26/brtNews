@@ -32,6 +32,11 @@ export class HomeComponent implements OnInit {
         this.toastr.warning("Something went wrong!");
       }
       this.mainLoaderIs = false;
+    },
+    (error) => {
+      this.mainLoaderIs = false;
+      this.toastr.warning(error.error.message);
+      console.log(error);
     });
   }
 }
