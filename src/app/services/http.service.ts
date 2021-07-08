@@ -14,15 +14,22 @@ apiKey = appConfig.apiKey;
     return this.http.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=" + this.apiKey);
   }
   getSearchResult(search:any,sourceName:any) {
+    console.log(search,sourceName,"---------")
     var requestUrl = "https://newsapi.org/v2/everything?";
-    if(search){
+    if(search != undefined && sourceName == undefined){
       requestUrl += "q="+ search
-    }
-    if(sourceName){
-      requestUrl += "country=" + sourceName 
+    }else if(sourceName != undefined && search == undefined){
+      requestUrl += "sources=" + sourceName 
+    }else{
+      requestUrl += "q="+ search + "&sources=" + sourceName
     }
     return this.http.get(requestUrl + "&apiKey=" + this.apiKey);
   }
+  // getSearchResult(search:any,sourceName:any) {
+  //   var requestUrl = "https://newsapi.org/v2/everything?q="+ search + "&sources=" + sourceName;
+   
+  //   return this.http.get(requestUrl + "&apiKey=" + this.apiKey);
+  // }
   getSourceList() {
     return this.http.get("https://newsapi.org/v2/top-headlines/sources?apiKey=" + this.apiKey);
   }

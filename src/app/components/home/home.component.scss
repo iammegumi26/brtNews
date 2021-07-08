@@ -1,55 +1,30 @@
 .homeContainer {
   padding: 20px;
+  font-weight: 600;
+    letter-spacing: 0.04rem;
+    font-family: "Nunito Sans", sans-serif;
   .topHeadline {
     max-width: 1200px;
     margin: 0 auto;
     overflow: auto;
+   
   }
 }
-.topNewsImage {
-  background-image: url(../../../assets/img/default.png);
-  position: relative;
-  height: 300px;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  background-position: center;
-  transition: 1s ease-out background-size;
-  .visibleLayer {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background: rgb(0 0 0);
-    background: linear-gradient(
-      180deg,
-      rgb(0 0 0 / 0%) 35%,
-      rgb(0 0 0 / 42%) 52%
-    );
-    color: #fff;
-    padding: 15px;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  &:hover {
-    cursor: pointer;
-    background-size: auto 150%;
-    box-shadow: 0px 0px 5px 5px #00000036;
-  }
-}
-.noDataFound, .serverError {
-  display: flex;
-  justify-content: center;
-}
+
 .searchBar{
-  .form-control{
-    border-radius: 50px;
-      background-color: #f6f6f6;
-      border: 1px solid #f6f6f6;
-      &:focus{
-        box-shadow: 0 0 0 0.25rem rgb(234 84 60 / 21%);
-      }
+  .keywordSearch{
+    .form-control{
+      border-radius: 50px;
+        background-color: #f6f6f6;
+        border: 1px solid #f6f6f6;
+        &:focus{
+          box-shadow: 0 0 0 0.25rem rgb(234 84 60 / 21%);
+        }
+    }
   }
+ 
+}
+.lastUpdatedAt{
+  color: #333333;
+    font-weight: 600;
 }

@@ -11,9 +11,23 @@ import { Injectable } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isActive: boolean = true;
-  constructor(private router: Router,) {}
+  activePage: any;
+  constructor(private router: Router,) {
+    router.events.subscribe((val: any) => {
+      if(val.url){
+        this.activePage = val.url;
+        if(this.activePage == "/recommendation"){
+          this.isActive = false;
+         }else{
+          this.isActive = true;
+         }
+      }
+    });
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  
+  }
   navigateHome() {
     this.isActive = true;
     this.router.navigate(["home"]);

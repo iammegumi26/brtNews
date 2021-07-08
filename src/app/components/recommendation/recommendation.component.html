@@ -1,4 +1,8 @@
-<div class="newsContainer">
+<div class="main-loader" *ngIf="mainLoaderIs">
+  <img src="./assets/img/loader.gif" alt="Loading..." />
+</div>
+<div class="recommendationContainer">
+  <div class="newsContainer">
     
     <div class="topHeadline" *ngIf="totalCount > 0">
       <div class="row no-gutters mx-0">
@@ -6,9 +10,9 @@
           <a href="{{topHeadLine.url}}" target="_blank" rel="">
             <div class="topNewsImage" style="background-image: url({{topHeadLine.urlToImage}});">
               <div class="visibleLayer">
-                <p class="mb-0" [innerHTML]="topHeadLine.title"></p>
+                <p class="mb-2" [innerHTML]="topHeadLine.title"></p>
                 <p
-                  class="mb-0"
+                  class="mb-0 publishDate"
                   [innerHTML]="topHeadLine.publishedAt | date: 'medium'"></p>
               </div>
             </div>
@@ -23,6 +27,6 @@
         <p>Page Not Found!</p>
     </div>
     </div>
-  
- 
   </div>
+</div>
+

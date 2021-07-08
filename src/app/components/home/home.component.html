@@ -1,15 +1,18 @@
+<div class="main-loader" *ngIf="mainLoaderIs">
+  <img src="./assets/img/loader.gif" alt="Loading..." />
+</div>
 <div class="homeContainer">
   <div class="newsContainer" *ngIf="topHeadLinesList && !isServerResponse">
     
     <div class="searchBar mb-3">
       <div class="row no-gutters filterArea">
-        <div class="col-md-6 col-lg-4 col-12">
+        <div class="col-md-6 col-lg-4 col-12 mb-2">
           <div class="lastUpdatedAt">
             Last updated at
             <span [innerHTML]="articles[0].publishedAt | date: 'medium'"></span>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 col-12">
+        <div class="col-md-6 col-lg-4 col-12 mb-2 keywordSearch">
           <div class="form-group">
             <input
               name="search"
@@ -20,19 +23,13 @@
               (ngModelChange)="showSearchResult()"/>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 col-12">
+        <div class="col-md-6 col-lg-4 col-12 mb-2">
             <div class="form-group">
               <input name="sources" [typeahead]="sourceNameList" [typeaheadMinLength]="0"
               [typeaheadOptionsLimit]="sourceNameList.length" [(ngModel)]="sourcesNameSearched"
-              placeholder="Search source" class="form-control" typeaheadOptionField="sources"
+              placeholder="Search & select source" class="form-control" typeaheadOptionField="sources"
               [typeaheadScrollable]="true" [typeaheadOptionsInScrollableView]="10" autocomplete="off"
               (typeaheadOnSelect)="showSearchResult()">
-
-              <!-- <button type="button" class="btn inputClear" *ngIf="filter.selectedDate"
-                (click)="filter.selectedDate = undefined; filter.fromDate = ''; filter.toDate = ''; searchData()"
-                style="right: -3px;">
-                <i class="fas fa-times"></i>
-              </button> -->
             </div>
         </div>
       </div>
@@ -43,9 +40,9 @@
           <a href="{{topHeadLine.url}}" target="_blank" rel="">
             <div class="topNewsImage" style="background-image: url({{topHeadLine.urlToImage}});">
               <div class="visibleLayer">
-                <p class="mb-0" [innerHTML]="topHeadLine.title"></p>
+                <p class="mb-2" [innerHTML]="topHeadLine.title"></p>
                 <p
-                  class="mb-0"
+                  class="mb-0 publishDate"
                   [innerHTML]="topHeadLine.publishedAt | date: 'medium'"></p>
               </div>
             </div>

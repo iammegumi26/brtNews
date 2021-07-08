@@ -17,15 +17,17 @@ export class RecommendationComponent implements OnInit {
   errorStatus: any;
   errorMessage: any;
   intervalCount: any = 0;
+  mainLoaderIs: any = false;
+
   constructor(public http: HttpService,
     private toastr: ToastrService, public app: AppComponent) { }
 
   ngOnInit() {
 
     this.getSearchStored = JSON.parse(localStorage.getItem('searchedKeywordStored') || '{}');
-    this.search = this.getSearchStored[0];
+    this.search = this.getSearchStored[1];
+    this.showSearchResult();
     setTimeout(() => {
-      this.showSearchResult();
     this.callRecentSearchNews();
     }, 100);
     
@@ -43,7 +45,7 @@ export class RecommendationComponent implements OnInit {
   }
 
   showSearchResult() {
-    this.app.mainLoaderIs = true;
+    this.mainLoaderIs = true;
       this.http.getSearchRecent(this.search).subscribe((response: any) => {
         if (response.status == "ok") {
           console.log(response);
@@ -58,11 +60,11 @@ export class RecommendationComponent implements OnInit {
           this.errorStatus = response.status;
           this.errorMessage = response.message;
         }
-        this.app.mainLoaderIs = false;
+        this.mainLoaderIs = false;
       },
         (error) => {
           this.isServerResponse = true;
-          this.app.mainLoaderIs = false;
+          this.mainLoaderIs = false;
           this.errorStatus = error.error.status;
           this.errorMessage = error.error.message;
           this.toastr.warning(error.error.message);
