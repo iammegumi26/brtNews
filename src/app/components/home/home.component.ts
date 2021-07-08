@@ -29,9 +29,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getTopHeadLineList();
     this.showSourceNameList();
-    // setInterval(()=>{
-    //   this.getTopHeadLineList();
-    // },60000)
+    setInterval(()=>{
+      this.getTopHeadLineList();
+    },60000)
 
   }
   getTopHeadLineList() {
