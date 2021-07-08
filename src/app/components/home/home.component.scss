@@ -36,9 +36,20 @@
   &:hover {
     cursor: pointer;
     background-size: auto 150%;
+    box-shadow: 0px 0px 5px 5px #00000036;
   }
 }
-.noDataFound {
+.noDataFound, .serverError {
   display: flex;
   justify-content: center;
+}
+.searchBar{
+  .form-control{
+    border-radius: 50px;
+      background-color: #f6f6f6;
+      border: 1px solid #f6f6f6;
+      &:focus{
+        box-shadow: 0 0 0 0.25rem rgb(234 84 60 / 21%);
+      }
+  }
 }

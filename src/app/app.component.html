@@ -1,4 +1,7 @@
 <div class="componentContainer">
+  <div class="main-loader" *ngIf="mainLoaderIs">
+    <img src="./assets/img/loader.gif" alt="Loading..." />
+  </div>
   <app-header></app-header>
   <router-outlet></router-outlet>
 </div>
